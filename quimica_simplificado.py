@@ -25,7 +25,6 @@ g = nx.DiGraph([
     ("FUV", "IPE"),
     ("BCC", "PI"),
 
-    ("FETERM","FQ"), ("FEMAG","FQ"),
     ("TQ","FUNDQ"),
     ("FETERM","PT"), ("FVV","PT"),
     ("TQ", "FRO"),

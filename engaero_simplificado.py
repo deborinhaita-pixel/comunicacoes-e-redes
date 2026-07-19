@@ -57,15 +57,27 @@ g = nx.DiGraph([
 
 g.add_nodes_from(["EDVT", "BIOA","BECN","BECM","CTS","EDS","IE","PADM","DUTA", "SDE", "INOVA"]) #adiciona os vértices isolados
 
-plt.figure(figsize=(20, 15)) #Tamanho da tela
+nos_bct = ["BM","FUV","FVV","FEMEC","GA","FVV","IEDO","EM","TQ","BQ","FETERM","BCC","NI","PI","CR","IEDO","FEMAG","FQ","IPE","BECN","BECM","CTS","EDS"]
 
-pos = nx.spring_layout(g, k=1.5, iterations=100) #escolhe o layout, k é a distância entre os nós
+cor_dos_nos = []
+
+for nodo in g.nodes():
+    if nodo in nos_bct:
+        cor_dos_nos.append("yellow")
+    else:
+        cor_dos_nos.append("lightblue")
+
+# Plotar o novo grafo
+plt.figure(figsize=(20, 15))
+
+# Usar um layout que espalha melhor os nós
+pos = nx.spring_layout(g, k=0.5, seed=42)
 
 nx.draw_networkx(
     g,
     pos,
-    with_labels=True, #faz aparecer o nome da disciplina escrito no nó
-    node_color='lightblue',
+    with_labels=True,
+    node_color=cor_dos_nos,
     node_size=800,
     font_size=8,
     arrows=True,
@@ -73,9 +85,6 @@ nx.draw_networkx(
     edge_color='black',
     alpha=0.5
 )
-
-nos_bct = ["BM","FUV","FVV","FEMEC","GA","FVV","IEDO","EM","TQ","BQ","FETERM","BCC","NI","PI","CR","IEDO","FEMAG","FQ","IPE","BECN","BECM","CTS","EDS"]
-nx.draw_networkx_nodes(g, pos, nodelist=nos_bct, node_color="yellow", node_size=800, alpha=0.5) #pinta por cima
 
 plt.title("Grafo de disciplinas do curso de Engenharia Aeroespacial", fontsize=16)
 plt.margins(0.1)

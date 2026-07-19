@@ -28,7 +28,6 @@ G.add_edges_from([
     ("BCC", "PI"),
 
     #Matérias q saem de TQ
-    ("TQ", "BQ"),
     ("BQ", "BioF"),
     ("BioF", "MicroB"),
 
@@ -80,19 +79,29 @@ G.add_node("BECM")
 G.add_node("EDS")
 G.add_node("CTS")
 
-G_transitive = nx.transitive_closure(G)
+G_transitiva = nx.transitive_closure(G)
+
+nos_bct = ["BM","FUV","FVV","FEMEC","GA","FVV","IEDO","EM","TQ","BQ","FETERM","BCC","NI","PI","CR","IEDO","FEMAG","FQ","IPE","BECN","BECM","CTS","EDS"]
+
+cor_dos_nos = []
+
+for nodo in G_transitiva.nodes():
+    if nodo in nos_bct:
+        cor_dos_nos.append("yellow")
+    else:
+        cor_dos_nos.append("pink")
 
 # Plotar o novo grafo
 plt.figure(figsize=(20, 15))
 
 # Usar um layout que espalha melhor os nós
-pos = nx.spring_layout(G_transitive, k=0.5, seed=42)
+pos = nx.spring_layout(G_transitiva, k=0.5, seed=42)
 
 nx.draw_networkx(
-    G_transitive,
+    G_transitiva,
     pos,
     with_labels=True,
-    node_color='lightpink',
+    node_color=cor_dos_nos,
     node_size=800,
     font_size=8,
     arrows=True,
@@ -100,9 +109,6 @@ nx.draw_networkx(
     edge_color='black',
     alpha=0.5
 )
-
-nos_bct = ["BM","FUV","FVV","FEMEC","GA","FVV","IEDO","EM","TQ","BQ","FETERM","BCC","NI","PI","CR","IEDO","FEMAG","FQ","IPE","BECN","BECM","CTS","EDS"]
-nx.draw_networkx_nodes(G_transitive, pos, nodelist=nos_bct, node_color="yellow", node_size=800, alpha=0.5) #pinta por cima
 
 plt.title("Grafo denso de disciplinas do curso de Ciências Biológicas", fontsize=16)
 plt.margins(0.1)

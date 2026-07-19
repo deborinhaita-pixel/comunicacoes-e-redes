@@ -52,14 +52,16 @@ g = nx.DiGraph([
 #Adiciona os nós soltos
 g.add_nodes_from(["EDVT","BIOA","BECN","BECM","CTS","EDS"])
 
-#Ajusta o tamanho da tela
+g_transitive = nx.transitive_closure(g)
+
+# Plotar o novo grafo
 plt.figure(figsize=(20, 15))
 
-#Usar um layout que espalha melhor os nós
-pos = nx.spring_layout(g, k=1.5, iterations=100)
+# Usar um layout que espalha melhor os nós
+pos = nx.spring_layout(g_transitive, k=0.5, seed=42)
 
 nx.draw_networkx(
-    g,
+    g_transitive,
     pos,
     with_labels=True,
     node_color='lightgreen',
@@ -71,6 +73,6 @@ nx.draw_networkx(
     alpha=0.5
 )
 
-plt.title("Grafo de disciplinas do curso de Química", fontsize=16)
+plt.title("Grafo denso de disciplinas do curso de Química", fontsize=16)
 plt.margins(0.1)
 plt.show()

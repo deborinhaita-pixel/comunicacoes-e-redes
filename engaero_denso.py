@@ -55,16 +55,20 @@ g = nx.DiGraph([
     ("TECAE", "PEEA I"),
     ("DING", "SP I")])
 
-g.add_nodes_from(["EDVT", "BIOA","BECN","BECM","CTS","EDS","IE","PADM","DUTA", "SDE", "INOVA"]) #adiciona os vértices isolados
+g.add_nodes_from(["EDVT", "BIOA","BECN","BECM","CTS","EDS","IE","PADM","DUTA", "SDE", "INOVA"]) #Adiciona os vértices isolados
 
-plt.figure(figsize=(20, 15)) #Tamanho da tela
+g_transitive = nx.transitive_closure(g)
 
-pos = nx.spring_layout(g, k=1.5, iterations=100) #escolhe o layout, k é a distância entre os nós
+# Plotar o novo grafo
+plt.figure(figsize=(20, 15))
+
+# Usar um layout que espalha melhor os nós
+pos = nx.spring_layout(g_transitive, k=0.5, seed=42)
 
 nx.draw_networkx(
-    g,
+    g_transitive,
     pos,
-    with_labels=True, #faz aparecer o nome da disciplina escrito no nó
+    with_labels=True,
     node_color='lightblue',
     node_size=800,
     font_size=8,
@@ -74,6 +78,6 @@ nx.draw_networkx(
     alpha=0.5
 )
 
-plt.title("Grafo de disciplinas do curso de Engenharia Aeroespacial", fontsize=16)
+plt.title("Grafo denso de disciplinas do curso de Engenharia Aeroespacial", fontsize=16)
 plt.margins(0.1)
 plt.show()

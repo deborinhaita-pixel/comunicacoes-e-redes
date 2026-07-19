@@ -80,17 +80,19 @@ G.add_node("BECM")
 G.add_node("EDS")
 G.add_node("CTS")
 
-#Ajusta o tamanho da tela
+G_transitive = nx.transitive_closure(G)
+
+# Plotar o novo grafo
 plt.figure(figsize=(20, 15))
 
-#Usar um layout que espalha melhor os nós, como o "Kamada-Kawai"
-pos = nx.spring_layout(G, k=1.5, iterations=100)
+# Usar um layout que espalha melhor os nós
+pos = nx.spring_layout(G_transitive, k=0.5, seed=42)
 
 nx.draw_networkx(
-    G,
+    G_transitive,
     pos,
     with_labels=True,
-    node_color='lightpink', #Rosa pq vc quer, amg
+    node_color='lightpink',
     node_size=800,
     font_size=8,
     arrows=True,
@@ -99,6 +101,6 @@ nx.draw_networkx(
     alpha=0.5
 )
 
-plt.title("Grafo de disciplinas do curso de Ciências Biológicas", fontsize=16)
+plt.title("Grafo denso de disciplinas do curso de Ciências Biológicas", fontsize=16)
 plt.margins(0.1)
 plt.show()

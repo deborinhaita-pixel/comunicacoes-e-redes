@@ -109,6 +109,7 @@ nx.draw_networkx(
     alpha=0.5
 )
 
-plt.title("Grafo de disciplinas do curso de Ciências Biológicas", fontsize=16)
+plt.title("Grafo simplificado de disciplinas do curso de Ciências Biológicas", fontsize=16)
 plt.margins(0.1)
+plt.savefig("Imagens/grafo_ciencias_biologicas_simplificado.png", dpi=300, bbox_inches='tight')
 plt.show()

@@ -25,7 +25,7 @@ G.add_edges_from([
     ("FETERM","FQ"),
     ("FEMAG","FQ"),
     ("FUV", "IPE"),
-    ("NI", "PI"),
+    ("BCC", "PI"),
 
 
     #Matérias q saem de BQ
@@ -144,4 +144,5 @@ nx.draw_networkx(
 
 plt.title("Grafo denso de disciplinas do curso de Biotecnologia", fontsize=16)
 plt.margins(0.1)
+plt.savefig("Imagens/grafo_biotecnologia_denso.png", dpi=300, bbox_inches='tight')
 plt.show()

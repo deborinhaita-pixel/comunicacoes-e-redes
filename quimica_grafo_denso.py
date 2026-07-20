@@ -84,4 +84,5 @@ nx.draw_networkx(
 
 plt.title("Grafo denso de disciplinas do curso de Química", fontsize=16)
 plt.margins(0.1)
+plt.savefig("Imagens/grafo_quimica_denso.png", dpi=300, bbox_inches='tight')
 plt.show()

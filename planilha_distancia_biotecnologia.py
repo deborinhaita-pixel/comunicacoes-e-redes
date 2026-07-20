@@ -25,8 +25,7 @@ G.add_edges_from([
     ("FETERM","FQ"),
     ("FEMAG","FQ"),
     ("FUV", "IPE"),
-    ("NI", "PI"),
-
+    ("BCC", "PI"),
 
     #Matérias q saem de BQ
     ("BQ","IBioinf"),

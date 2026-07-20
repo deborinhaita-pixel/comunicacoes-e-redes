@@ -2,6 +2,7 @@ import networkx as nx
 import matplotlib.pyplot as plt
 
 g = nx.DiGraph([
+    
     #BC&T
     ("BM","FUV"),
     ("FUV","FVV"),
@@ -23,55 +24,85 @@ g = nx.DiGraph([
     ("FUV", "IPE"),
     ("BCC", "PI"),
 
-    #Matérias q saem de TQ
-    ("TQ", "BQ"),
-    ("BQ", "BioF"),
-    ("BioF", "MicroB"),
+
+    #Matérias q saem de BQ
+    ("BQ","IBioinf"),
+    ("BQ","IBiotec"),
+    ("BQ","BS"),
+    ("BQ","BF"),
+    ("BQ","PFB"),
+    ("BQ","Farmac"),
+    ("BQ","EngM"),
+    ("BQ","TF"),
+
+    #Matérias q saem de BMB
+    ("BMB","EngM"),
+    ("BMB","NanoB"),
+    ("BMB","GPG"),
+    ("BMB","EB"),
+    ("BMB","BA"),
+    ("BMB","BH"),
+    ("BMB","PR"),
+    ("PR","LB"),
+    ("BMB","SRB"),
+    ("HE","BMB"),
+
+    #Matérias q saem de Farmac
+    ("Farmac","SRB"),
+    ("Farmac","NanoB"),
+    ("Farmac","EB"),
+    ("Farmac","LB"),
+
+    #Matérias que saem de PI
+    ("PI", "CN"),
+    ("FUV", "CN"),
+    ("CN", "CCAPB"),
+    ("IPE", "CCAPB"),
+    ("CCAPB","Bioest"),
+
+    #Matérias que saem de BioC
+    ("BioC", "BF"),
+    ("BioC", "HE"),
+    ("BioC", "G1"),
+    ("BioC", "IBioinf"),
+    ("BioC", "FI"),
+
+    ("G1", "G2"),
+    ("G1", "PFB"),
+
+    ("G2", "BS"),
+    ("G2", "FV2"),
+    ("FV2", "BV"),
+    ("G2", "LB"),
+    ("G2", "EB"),
+    ("G2", "NanoB"),
+
+    ("BF", "Microb"),
+    ("Microb", "PR"),
+
+    ("FI", "BH"),
 
     #Matérias q saem de EDVT
-    ("EDVT", "GeoP"),
+
     ("EDVT", "SB"),
+    ("SB", "EDP1"),
     ("EDP1", "EDP2"),
     ("EDP2", "FV1"),
     ("FV1", "FV2"),
+    ("EDVT", "BIOA"),
     ("EDVT", "BioC"),
 
-    #Matérias que saem de SB
-    ("SB", "EDP1"),
-    ("SB", "Evol"),
-    ("SB", "ZODM"),
-    ("ZODM", "ZE"),
-    ("ZE", "ZV"),
-    ("ZV", "MAC"),
+    ("BIOA", "IBiotec"),
+    ("IBiotec", "EPPB"),
 
-    #Matérias que saem de BIOA
-    ("BIOA", "EcoV"),
-    ("BIOA", "EcoC"),
-    ("BIOA", "PE"),
-    ("BIOA", "MicroB"),
-
-    #Matérias que saem de BioC
-    ("BioC", "Gen1"),
-    ("Gen1", "Gen2"),
-    ("Gen2", "FV2"),
-    ("Gen2", "Evol"),
-    ("BioC", "BioF"),
-    ("BioC", "FI"),
-    ("BioC", "HE"),
-
-    ("HE", "MH1"),
-    ("MH1", "MH2"),
-    ("MH1", "MH3"),
-
-    ("Evol", "MAC"),
-    ("IPE", "Evol"),
     
 ])
 
 #Vértices sem ligação
 g.add_node("Bioética")
-g.add_node("BECN")
+g.add_node("FB")
 g.add_node("BECM")
+g.add_node("BECN")
 g.add_node("EDS")
 g.add_node("CTS")
 

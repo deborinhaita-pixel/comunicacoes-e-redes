@@ -1,4 +1,5 @@
 #Grafo Engenharia Aeroespacial
+#me ame imediatamente 
 
 import networkx as nx
 import matplotlib.pyplot as plt

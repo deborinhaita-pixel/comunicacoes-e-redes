@@ -89,7 +89,6 @@ g = nx.DiGraph([
     ("EDP1", "EDP2"),
     ("EDP2", "FV1"),
     ("FV1", "FV2"),
-    ("EDVT", "BIOA"),
     ("EDVT", "BioC"),
 
     ("BIOA", "IBiotec"),

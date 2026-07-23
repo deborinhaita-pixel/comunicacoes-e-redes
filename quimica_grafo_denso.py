@@ -53,8 +53,7 @@ g.add_nodes_from(["EDVT","BIOA","BECN","BECM","CTS","EDS"])
 
 g_transitiva = nx.transitive_closure(g)
 
-nos_bct = ["BM","FUV","FVV","FEMEC","GA","FVV","IEDO","EM","TQ","BQ","FETERM","BCC","NI","PI","CR","IEDO","FEMAG","FQ","IPE","BECN","BECM","CTS","EDS"]
-
+nos_bct = ["BM","FUV","FVV","FEMEC","GA","IEDO","EM","TQ","BQ","FETERM","BCC","NI","PI","CR","FEMAG","FQ","IPE","BECN","BECM","CTS","EDS","BIOA","EDVT"]
 cor_dos_nos = []
 
 for nodo in g_transitiva.nodes():

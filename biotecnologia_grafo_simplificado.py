@@ -111,8 +111,7 @@ G.add_node("BECN")
 G.add_node("EDS")
 G.add_node("CTS")
 
-nos_bct = ["BM","FUV","FVV","FEMEC","GA","FVV","IEDO","EM","TQ","BQ","FETERM","BCC","NI","PI","CR","IEDO","FEMAG","FQ","IPE","BECN","BECM","CTS","EDS"]
-
+nos_bct = ["BM","FUV","FVV","FEMEC","GA","IEDO","EM","TQ","BQ","FETERM","BCC","NI","PI","CR","FEMAG","FQ","IPE","BECN","BECM","CTS","EDS","BIOA","EDVT"]
 cor_dos_nos = []
 
 for nodo in G.nodes():
